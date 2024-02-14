@@ -10,7 +10,10 @@ dotenv.config();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://auth-mern-mu.vercel.app/","http://localhost:5173"],
+    origin: [
+      "https://auth-mern-mu.vercel.app",
+      "http://localhost:5173",
+    ],
     credentials: true,
   })
 );
