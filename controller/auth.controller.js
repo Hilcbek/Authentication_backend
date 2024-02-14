@@ -86,7 +86,7 @@ export let LoginWithGoogle = asyncHandler(async (req, res, next) => {
       let { password, ...info } = newUser._doc;
       let expiresDate = new Date(Date.now() + 3600000);
       res
-        .cookie("token", token, { httpOnly: true, expires: expiresDate })
+        .cookie("token", token, { expires: expiresDate })
         .status(200)
         .json({ data: info });
     }
