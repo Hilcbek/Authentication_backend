@@ -14,4 +14,4 @@ authRouter.post("/sign-in", SignIn);
 authRouter.post("/google-sign-in", LoginWithGoogle);
 authRouter.put("/update/:id", verifyToken, Update);
 authRouter.delete("/delete/:id", verifyToken, Delete);
-authRouter.post("/signOut", verifyToken ,SignOut);
+authRouter.post("/signOut",SignOut);
