@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
 import User from "../models/users.model.js";
 import { Message } from "../Error/error.js";
