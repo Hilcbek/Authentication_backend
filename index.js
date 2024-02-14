@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import mongoose from "mongoose";
+import { authRouter } from "./router/auth.router.js";
 let app = express();
 dotenv.config();
 app.use(express.json());
@@ -27,4 +28,9 @@ mongoose.connection.on("connected", () => console.log(`db is running!`));
 mongoose.connection.on("disconnected", () =>
   console.log(`db stopped running!`)
 );
-app.use('/',(req,res) => res.send('hello') )
+app.use("/api/auth", authRouter);
+app.use((err, req, res, next) => {
+  let errorMessage = err.message || "Something went wrong!";
+  let errorStatus = err.status || 500;
+  res.status(errorStatus).json({ error: errorMessage });
+});
